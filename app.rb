@@ -12,7 +12,11 @@ helpers do
 end
 
 get '/' do
-  erb :index
+  erb :index, layout: :master
+end
+
+get '/links' do
+  erb :links, layout: :master
 end
 
 post '/' do

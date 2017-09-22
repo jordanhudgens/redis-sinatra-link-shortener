@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html>
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <form method="post">
+      <input type="text" value="<%= escape_html(params[:url]) %>" name="url" id="url" />
+      <input type="submit" value="shorten url" id="submit" class="btn-large waves-effect waves-light orange" />
+    </form>
 
-<head>
-  <title>Redis Link Shortener</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-</head>
+    <div class="clear"></div>
 
-<body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Redis Link Shortener</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <form method="post">
-        <input type="text" value="<%= escape_html(params[:url]) %>" name="url" id="url" />
-        <input type="submit" value="shorten url" id="submit" class="btn-large waves-effect waves-light orange" />
-      </form>
-
-      <div class="clear"></div>
-
-      <% if @shortcode %>
-        <h5 class="header col s12 light">
-          Your shortened URL is:
-          <a href="http://my-shortlink-app.com/<%= @shortcode %>">http://my-shortlink-app.com/<%= @shortcode %></a>
-        </h5>
-      <% end %>
-
-    </div>
+    <% if @shortcode %>
+      <h5 class="header col s12 light">
+        Your shortened URL is:
+        <a href="http://my-shortlink-app.com/<%= @shortcode %>">http://my-shortlink-app.com/<%= @shortcode %></a>
+      </h5>
+    <% end %>
   </div>
-</body>
+</div>
