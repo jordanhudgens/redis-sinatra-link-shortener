@@ -69,7 +69,7 @@
     <div class="container">
         <h1>shortlink app</h1>
         <form method="post">
-            <input type="text" value="<%= h(params[:url]) %>" name="url" id="url" />
+            <input type="text" value="<%= escape_html(params[:url]) %>" name="url" id="url" />
             <input type="submit" value="shorten" id="submit" />
         </form>
         <div class="clear"></div>

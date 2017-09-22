@@ -5,10 +5,9 @@ redis = Redis.new
 
 helpers do
   include Rack::Utils
-  alias_method :h, :escape_html
 
   def random_string(length)
-    rand(36**length).to_s(36)
+    SecureRandom.base64.tr('+/=', 'Qrt')
   end
 end
 
