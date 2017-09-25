@@ -16,6 +16,9 @@ get '/' do
 end
 
 get '/links' do
+  @links_and_short_codes = redis.keys("*").each_with_object({}) do |link, hash|
+    hash[link] = redis.get(link)
+  end
   erb :links, layout: :master
 end
 
