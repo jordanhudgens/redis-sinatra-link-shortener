@@ -16,7 +16,7 @@ get '/' do
 end
 
 get '/links' do
-  @links_and_short_codes = redis.keys("*").each_with_object({}) do |link, hash|
+  @links_and_short_codes = redis.keys("links:*").each_with_object({}) do |link, hash|
     hash[link.gsub("links:", "")] = redis.get(link)
   end
   erb :links, layout: :master
@@ -27,7 +27,7 @@ post '/' do
     @shortcode = random_string 5
     redis.setnx "links:#{@shortcode}", params[:url]
   end
-  erb :index
+  erb :index, layout: :master
 end
 
 get '/:shortcode' do
